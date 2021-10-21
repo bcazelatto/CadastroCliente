@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.data.repository.CrudRepository.findOne;
 
 import com.crud.api.documents.Cliente;
 import com.crud.api.repositories.ClienteRepository;
 import com.crud.api.services.ClienteService;
+
+
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -19,6 +20,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public List<Cliente> listarTodos() {
 		return this.clienteRespository.findAll();
+	}
+
+	@Override
+	public Cliente listarPorId(String id) {
+		return this.clienteRespository.findById(id).orElseThrow();
 	}
 
 	@Override
@@ -34,12 +40,6 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public void remover(String id) {
 		this.clienteRespository.deleteById(id);
-	}
-
-	@Override
-	public Cliente listarPorId(String id) {
-		// TODO Auto-generated method stub
-		return this.clienteRespository.findOne(id);
 	}
 
 }
