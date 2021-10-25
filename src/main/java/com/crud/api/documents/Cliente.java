@@ -19,7 +19,10 @@ public class Cliente {
 	private String email;
 	private String cpf;
 
-	public Cliente() {
+	public Cliente(String nome, String email, String cpf) {
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
 	}
 
 	public String getId() {
